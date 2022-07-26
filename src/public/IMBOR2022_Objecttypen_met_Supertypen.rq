@@ -8,7 +8,7 @@ PREFIX coll: <https://data.crow.nl/rest-api/id#>
 PREFIX restapi: <https://data.crow.nl/rest-api/def#>
 PREFIX dash: <http://datashapes.org/dash#>
 
-SELECT DISTINCT ?uriConcept ?labelConcept ?definitieConcept ?uriSupertype ?definitieSupertype
+SELECT DISTINCT ?uriConcept ?labelConcept ?definitieConcept ?uriSupertype ?definitieSupertype ?labelSupertype
 
 WHERE { 
 
@@ -32,6 +32,7 @@ WHERE {
     OPTIONAL{?uriConcept skos:prefLabel ?labelConcept}
     OPTIONAL{?uriConcept skos:definition ?definitieConcept}
 	OPTIONAL{?uriSupertype skos:definition ?definitieSupertype}
+	OPTIONAL{?uriSupertype skos:prefLabel ?labelSupertype}
     
 } 
 ORDER BY STR(?labelConcept) STR(?labelSupertype) 
